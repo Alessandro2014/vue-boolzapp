@@ -1,3 +1,10 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+} 
+
+    /* BACKGROUND COLORI SEZIONI */
 .section-top {
     background-color: #009688;
     height: 15vh;
@@ -12,4 +19,47 @@
     height: 95vh;
     width: 80vw;
     background-color: white;
+}
+
+#jumbo-left {
+    height: 100%;
+
+}
+
+/* SEZIONE CENTRALE APPLICAZIONE */
+
+.chat-area {
+    height: 80vh;
+    background-image: url("../img/mine.jpg");
+    background-size: cover;
+}
+
+.bg-area {
+    background-color: #EAEAEA;
+}
+
+.bg-new-notify {
+    background-color: #8EDAFC;
+}
+
+.text-notify {
+    font-size: 0.8rem;
+    text-decoration: underline;
+}
+
+#jumbo-left .fas {
+    margin-right: 5px;
+}
+
+.fa-bell-slash {
+    color: #8EDAFC;
+    background-color: white;
+    border-radius: 50%;
+    padding: 15px;
+}
+
+.user-img img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
 }
