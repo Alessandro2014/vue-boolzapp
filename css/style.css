@@ -21,15 +21,10 @@
     background-color: white;
 }
 
-#jumbo-left {
-    height: 100%;
-
-}
-
 /* SEZIONE CENTRALE APPLICAZIONE */
 
 .chat-area {
-    height: 80vh;
+    height: 70vh;
     background-image: url("../img/mine.jpg");
     background-size: cover;
 }
@@ -63,3 +58,4 @@
     width: 50px;
     border-radius: 50%;
 }
+
