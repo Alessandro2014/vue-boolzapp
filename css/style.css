@@ -1,0 +1,15 @@
+.section-top {
+    background-color: #009688;
+    height: 15vh;
+}
+
+.section-bottom {
+    background-color: #D6DBD8;
+    height: 85vh;
+}
+
+#jumbotron {
+    height: 95vh;
+    width: 80vw;
+    background-color: white;
+}
