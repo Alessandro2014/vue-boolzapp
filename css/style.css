@@ -1,61 +1,153 @@
-* {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-} 
-
-    /* BACKGROUND COLORI SEZIONI */
-.section-top {
-    background-color: #009688;
-    height: 15vh;
+/* Utils */
+.bg-light-gray {
+  background-color: #eaeaea;
 }
 
-.section-bottom {
-    background-color: #D6DBD8;
-    height: 85vh;
+.bg-light-blue {
+  background-color: #8edafc;
 }
 
-#jumbotron {
-    height: 95vh;
-    width: 80vw;
-    background-color: white;
+.bg-chat-color {
+  background-color: #ece5dd;
 }
 
-/* SEZIONE CENTRALE APPLICAZIONE */
-
-.chat-area {
-    height: 70vh;
-    background-image: url("../img/mine.jpg");
-    background-size: cover;
+.bg-chat-image {
+  background-image: url('../img/mine.jpg');
 }
 
-.bg-area {
-    background-color: #EAEAEA;
+.clickable {
+  cursor: pointer;
 }
 
-.bg-new-notify {
-    background-color: #8EDAFC;
+/* MEDIA  */
+
+.media {
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
-.text-notify {
-    font-size: 0.8rem;
-    text-decoration: underline;
+.media figure {
+  height: 70px;
+  padding: 0.5rem;
+  margin-bottom: 0;
 }
 
-#jumbo-left .fas {
-    margin-right: 5px;
+.media .media-icon {
+  width: 50px;
+  height: 50px;
+  margin-left: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  border-radius: 50%;
 }
 
-.fa-bell-slash {
-    color: #8EDAFC;
-    background-color: white;
-    border-radius: 50%;
-    padding: 15px;
+.media img {
+  height: 100%;
+  max-width: 100%;
+  border-radius: 50%;
 }
 
-.user-img img {
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
+.media .media-text {
+  margin-left: 0.5rem;
+  margin-bottom: 0;
+}
+.media .media-secondary-text {
+  margin-bottom: 0;
 }
 
+li.media:hover {
+  cursor: pointer;
+  background-color: #eaeaea;
+}
+
+/* MAIN SECTIONS */
+body {
+  height: 100vh;
+  background-image: linear-gradient(
+    to bottom,
+    #00bfa5 15%,
+    #f0f0f0 15%,
+    #f0f0f0 100%
+  );
+}
+
+#app .container {
+  height: 90%;
+}
+
+/* CHAT SECTION */
+
+#chat header,
+#chat footer,
+.user-section {
+  height: 70px;
+}
+
+/* CONTACTS SECTION */
+
+.search {
+  height: 50px;
+  position: relative;
+}
+
+.search .fa-search {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+}
+
+.search input {
+  border: 0;
+  height: 100%;
+  padding-left: 50px;
+}
+
+.notifications {
+  height: 80px;
+  background-color: #8edafc;
+}
+
+.notifications i.fas {
+  color: #8edafc;
+}
+
+/* CHAT FOOTER */
+
+#chat footer [class^='col-'] {
+  display: flex;
+  justify-content: center;
+}
+
+/* MESSAGES */
+.message-container {
+  display: flex;
+}
+.message-container.sent {
+  justify-content: flex-end;
+}
+
+.message-container.received {
+  justify-content: flex-start;
+}
+
+.message-container.sent .message {
+  background-color: #d5f9ba;
+}
+
+.message-container.received .message {
+  background-color: #fff;
+}
+
+.message-container .message p {
+  margin-bottom: 0;
+}
+.message-container .message time {
+  display: block;
+  text-align: right;
+  font-size: 11px;
+  color: #aaa;
+}
