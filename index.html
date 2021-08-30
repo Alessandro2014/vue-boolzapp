@@ -21,19 +21,16 @@
   <body>
     <div
       id="app"
-      class="h-100 d-flex align-items-center justify-content-center"
-    >
+      class="h-100 d-flex align-items-center justify-content-center">
       <main class="container rounded shadow bg-white">
         <div class="row h-100">
           <!-- CONTACTS SECTION -->
           <section
             id="sidebar"
-            class="col-4 p-0 h-100 bg-light-gray d-flex flex-column"
-          >
+            class="col-4 p-0 h-100 bg-light-gray d-flex flex-column">
             <!-- User section -->
             <section
-              class="user-section flex-shrink-0 d-flex justify-content-between"
-            >
+              class="user-section flex-shrink-0 d-flex justify-content-between">
               <div class="media">
                 <figure>
                   <img :src="`img/avatar${user.avatar}.jpg`" :alt="user.name" />
@@ -41,14 +38,7 @@
                 <div class="h6 media-text">{{ user.name }}</div>
               </div>
               <div
-                class="
-                  w-25
-                  text-muted
-                  d-flex
-                  justify-content-around
-                  align-items-center
-                "
-              >
+                class="w-25 text-muted d-flex justify-content-around align-items-center">
                 <i class="fas fa-circle-notch clickable"></i>
                 <i class="fas fa-comment-alt clickable"></i>
                 <i class="fas fa-ellipsis-v clickable"></i>
@@ -77,10 +67,10 @@
                 placeholder="Cerca o inizia una nuova chat..."
               />
             </section>
-            <!-- Users list -->
+            <!-- contact list -->
             <section class="flex-grow-1 overflow-auto bg-white">
               <ul class="m-0 p-0">
-                <li class="media" v-for="contact in contacts">
+                <li :class="['media', {active: index === currentContact}]" v-for="(contact, index) in contacts" @click="setCurrentContact(index)">
                   <figure>
                     <img :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name" />
                   </figure>
@@ -102,10 +92,10 @@
             >
               <div class="media">
                 <figure>
-                  <img :src="`img/avatar${contacts[0].avatar}.jpg`" :alt="contacts[0].name" />
+                  <img :src="`img/avatar${contacts[currentContact].avatar}.jpg`" :alt="contacts[currentContact].name" />
                 </figure>
                 <div class="h6 media-text">
-                  <div>{{ contacts[0].name }}</div>
+                  <div>{{ contacts[currentContact].name }}</div>
                   <div class="media-secondary-text fw-light">
                     <small>Ultimo accesso oggi alle</small>
                   </div>
@@ -128,7 +118,8 @@
             <!-- Chat messages -->
             <div class="flex-grow-1 overflow-auto bg-chat-image">
               <ul>
-                <li class="message-container p-3 sent" v-for="item in contacts[0].messages">
+                <li class="message-container p-3 sent" v-for="item in contacts[currentContact].messages"
+                    :class="item.status">
                   <div class="message p-2 rounded-3">
                     <p>{{ item.message }}</p>
                     <time datetime="2021-08-03T09:53">{{ item.date }}</time>
@@ -146,18 +137,10 @@
                   <input
                     type="text"
                     class="form-control"
-                    placeholder="Scrivi un messaggio"
-                  />
+                    placeholder="Scrivi un messaggio"/>
                 </div>
                 <div class="col-1">
-                  <i
-                    class="
-                      fas
-                      fa-chevron-circle-right fa-2x
-                      text-muted
-                      clickable
-                    "
-                  ></i>
+                  <i class="fas fa-chevron-circle-right fa-2x text-muted clickable"></i>
                 </div>
               </div>
             </footer>

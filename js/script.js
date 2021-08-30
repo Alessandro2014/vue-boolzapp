@@ -5,6 +5,7 @@ Vue.config.devtools = true;
 const app = new Vue({
   el: '#app',
   data: {
+    currentContact: 0,
     user: {
       name: 'Nome Utente',
       avatar: '_io',
@@ -95,5 +96,9 @@ const app = new Vue({
       },
     ],
   },
-  methods: { },
+  methods: {
+    setCurrentContact(index){
+      this.currentContact = index;
+    }
+  },
 });

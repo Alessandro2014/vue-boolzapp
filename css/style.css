@@ -27,6 +27,10 @@
   align-items: center;
 }
 
+.media.active {
+  background-color: lightgrey;
+}
+
 .media figure {
   height: 70px;
   padding: 0.5rem;
