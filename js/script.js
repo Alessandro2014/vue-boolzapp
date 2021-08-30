@@ -126,14 +126,12 @@ const app = new Vue({
 
     },
 
-    // getLastSeen(){
-    //   const messages = this.contacts[this.currentContact].messages;
-    //   const receivedMessages = messages.filter(
-    //   (message) => message.status == 'received'
-    //   );
-    //   const lastMessage = receivedMessages[receivedMessages.lenght - 1];
-    //   return lastMessage.date;
-    // }
+    getLastAccess(){
+      const messages = this.contacts[this.currentContact].messages;
+      const receivedMessages = messages[messages.length - 1];
+      
+      return receivedMessages.date;
+    },
 
   },
 });
