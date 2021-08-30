@@ -6,6 +6,7 @@ const app = new Vue({
   el: '#app',
   data: {
     currentContact: 0,
+    writeMessage: '',
     user: {
       name: 'Nome Utente',
       avatar: '_io',
@@ -99,6 +100,40 @@ const app = new Vue({
   methods: {
     setCurrentContact(index){
       this.currentContact = index;
-    }
+    },
+
+    sendMessage(){
+      if (!this.writeMessage) return;
+
+      const newMessage = {
+        date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
+        message: this.writeMessage,
+        status: 'sent',
+      };
+      this.contacts[this.currentContact].messages.push(newMessage);
+
+      this.writeMessage = '';
+
+      setTimeout(() => {
+        const answerMessage = {
+          date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
+          message: 'ok',
+          status: 'received',
+        };
+        this.contacts[this.currentContact].messages.push(answerMessage);
+
+      }, 1000);
+
+    },
+
+    // getLastSeen(){
+    //   const messages = this.contacts[this.currentContact].messages;
+    //   const receivedMessages = messages.filter(
+    //   (message) => message.status == 'received'
+    //   );
+    //   const lastMessage = receivedMessages[receivedMessages.lenght - 1];
+    //   return lastMessage.date;
+    // }
+
   },
 });

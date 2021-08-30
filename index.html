@@ -12,11 +12,10 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="css/style.css" type="text/css" />
-    <script
-      src="https://kit.fontawesome.com/83bd2dbeec.js"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://kit.fontawesome.com/83bd2dbeec.js"
+      crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.6/dayjs.min.js"></script>
   </head>
   <body>
     <div
@@ -97,7 +96,7 @@
                 <div class="h6 media-text">
                   <div>{{ contacts[currentContact].name }}</div>
                   <div class="media-secondary-text fw-light">
-                    <small>Ultimo accesso oggi alle</small>
+                    <!-- <small>Ultimo accesso oggi alle {{ getLastSeen() }} </small> -->
                   </div>
                 </div>
               </div>
@@ -134,10 +133,8 @@
                   <i class="far fa-smile fa-2x text-muted clickable"></i>
                 </div>
                 <div class="col-10">
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Scrivi un messaggio"/>
+                  <input type="text" class="form-control" placeholder="Scrivi un messaggio"
+                          v-model.trim="writeMessage" @keyup.enter="sendMessage"/>
                 </div>
                 <div class="col-1">
                   <i class="fas fa-chevron-circle-right fa-2x text-muted clickable"></i>
