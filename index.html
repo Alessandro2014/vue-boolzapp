@@ -60,16 +60,14 @@
             <!-- Search section -->
             <section class="search p-2">
               <i class="fas fa-search text-muted"></i>
-              <input
-                type="text"
-                class="w-100"
-                placeholder="Cerca o inizia una nuova chat..."
-              />
+              <input type="text" class="w-100"
+                placeholder="Cerca o inizia una nuova chat..." v-model="searchUser"/>
             </section>
             <!-- contact list -->
             <section class="flex-grow-1 overflow-auto bg-white">
               <ul class="m-0 p-0">
-                <li :class="['media', {active: index === currentContact}]" v-for="(contact, index) in contacts" @click="setCurrentContact(index)">
+                <li :class="['media', {active: index === currentContact}]" v-for="(contact, index) in contacts" 
+                    @click="setCurrentContact(index)" v-if="showUser(contact.name)">
                   <figure>
                     <img :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name" />
                   </figure>
@@ -83,12 +81,10 @@
           <!-- CHAT SECTION -->
           <section
             id="chat"
-            class="col-8 rounded-end d-flex flex-column p-0 h-100 bg-chat-color"
-          >
+            class="col-8 rounded-end d-flex flex-column p-0 h-100 bg-chat-color">
             <!-- Chat Contact  -->
             <header
-              class="bg-light-gray flex-shrink-0 d-flex justify-content-between"
-            >
+              class="bg-light-gray flex-shrink-0 d-flex justify-content-between">
               <div class="media">
                 <figure>
                   <img :src="`img/avatar${contacts[currentContact].avatar}.jpg`" :alt="contacts[currentContact].name" />
@@ -101,14 +97,7 @@
                 </div>
               </div>
               <div
-                class="
-                  me-3
-                  d-flex
-                  text-muted
-                  align-items-center
-                  justify-content-around
-                "
-              >
+                class="  me-3 d-flex text-muted align-items-center justify-content-around">
                 <i class="fas fa-search ms-3"></i>
                 <i class="fas fa-paperclip ms-3"></i>
                 <i class="fas fa-ellipsis-v ms-3"></i>

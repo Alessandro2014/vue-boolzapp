@@ -7,6 +7,7 @@ const app = new Vue({
   data: {
     currentContact: 0,
     writeMessage: '',
+    searchUser: '',
     user: {
       name: 'Nome Utente',
       avatar: '_io',
@@ -98,10 +99,13 @@ const app = new Vue({
     ],
   },
   methods: {
+
+    // FUNZIONE CHE PERMETTE DI SPOSTARSI TRA GLI UTENTI
     setCurrentContact(index){
       this.currentContact = index;
     },
 
+    // AGGIUNTA NUOVO MESSAGGIO 
     sendMessage(){
       if (!this.writeMessage) return;
 
@@ -114,6 +118,7 @@ const app = new Vue({
 
       this.writeMessage = '';
 
+      //RISPOSTA AUTOMATICA DOPO 1 SEC
       setTimeout(() => {
         const answerMessage = {
           date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
@@ -126,12 +131,20 @@ const app = new Vue({
 
     },
 
+    // ULTIMO ACCESSO
     getLastAccess(){
       const messages = this.contacts[this.currentContact].messages;
       const receivedMessages = messages[messages.length - 1];
-      
+
       return receivedMessages.date;
     },
 
+    // RICERCA TRA GLI UTENTI
+     showUser(contact){
+      if(!this.searchUser.trim() ) return true;
+      const filter = this.searchUser.trim().toLowerCase();
+      contact = contact.toLowerCase();
+      return contact.includes(filter);
+     },
   },
 });
