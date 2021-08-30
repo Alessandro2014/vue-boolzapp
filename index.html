@@ -106,10 +106,12 @@
             <!-- Chat messages -->
             <div class="flex-grow-1 overflow-auto bg-chat-image">
               <ul>
-                <li class="message-container p-3 sent" v-for="item in contacts[currentContact].messages"
+                <li class="message-container p-3 sent" v-for="(item, index) in contacts[currentContact].messages"
                     :class="item.status">
                   <div class="message p-2 rounded-3">
-                    <p>{{ item.message }}</p>
+                    <p>{{ item.message }}
+                      <i class="far fa-trash-alt" @click="deletedTask(index)"></i>
+                    </p>
                     <time datetime="2021-08-03T09:53">{{ item.date }}</time>
                   </div>
                 </li>

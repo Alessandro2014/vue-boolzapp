@@ -146,5 +146,9 @@ const app = new Vue({
       contact = contact.toLowerCase();
       return contact.includes(filter);
      },
+
+     deletedTask(index){
+      this.contacts[this.currentContact].messages.splice(index,1);
+    },
   },
 });

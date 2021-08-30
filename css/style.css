@@ -155,3 +155,15 @@ body {
   font-size: 11px;
   color: #aaa;
 }
+
+.message-container .far {
+  font-size: 0.9em;
+  vertical-align: middle;
+  padding: 2px;
+
+}
+
+.message-container .far:hover {
+  background-color: red;
+}
+
