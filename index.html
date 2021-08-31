@@ -129,7 +129,7 @@
                   <input type="text" class="form-control" placeholder="Scrivi un messaggio"
                           v-model.trim="writeMessage" @keyup.enter="sendMessage"/>
                 </div>
-                <div class="col-1">
+                <div class="col-1" @click="sendMessage">
                   <i class="fas fa-chevron-circle-right fa-2x text-muted clickable"></i>
                 </div>
               </div>
