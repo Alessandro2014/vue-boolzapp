@@ -139,6 +139,14 @@ const app = new Vue({
       return receivedMessages.date;
     },
 
+    // ULTIMO ACCESSO UTENTI
+    getLastUserAccess(contact){
+      const messages = contact.messages;
+      const receivedMessages = messages[messages.length - 1];
+
+      return receivedMessages.date;
+    },
+
     // RICERCA TRA GLI UTENTI
      showUser(contact){
       if(!this.searchUser.trim() ) return true;
@@ -147,6 +155,7 @@ const app = new Vue({
       return contact.includes(filter);
      },
 
+      // CANCELLARE MESSAGGIO
      deletedTask(index){
       this.contacts[this.currentContact].messages.splice(index,1);
     },

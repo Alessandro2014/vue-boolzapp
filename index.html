@@ -73,6 +73,8 @@
                   </figure>
                   <div class="h6 media-text">
                     <div>{{ contact.name }}</div>
+                    <small  class="media-secondary-text fw-light"> 
+                            {{ getLastUserAccess(contact) }} </small>                  
                   </div>
                 </li>
               </ul>
