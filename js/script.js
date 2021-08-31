@@ -156,7 +156,7 @@ const app = new Vue({
      },
 
       // CANCELLARE MESSAGGIO
-     deletedTask(index){
+     deletedMessage(index){
       this.contacts[this.currentContact].messages.splice(index,1);
     },
   },
