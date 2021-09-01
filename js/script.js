@@ -7,7 +7,7 @@ const app = new Vue({
   data: {
     currentContact: 0,
     writeMessage: '',
-    searchUser: '',
+    contactFilter: '',
     user: {
       name: 'Nome Utente',
       avatar: '_io',
@@ -148,11 +148,12 @@ const app = new Vue({
     },
 
     // RICERCA TRA GLI UTENTI
-     showUser(contact){
-      if(!this.searchUser.trim() ) return true;
-      const filter = this.searchUser.trim().toLowerCase();
-      contact = contact.toLowerCase();
-      return contact.includes(filter);
+     filterContacts(){
+       const filter = this.contactFilter.toLowerCase();
+       this.contacts.forEach((contact) => {
+         const contactName = contact.name.toLowerCase();
+         contact.visible = contactName.includes(filter);
+       });
      },
 
       // CANCELLARE MESSAGGIO

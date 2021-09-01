@@ -61,13 +61,14 @@
             <section class="search p-2">
               <i class="fas fa-search text-muted"></i>
               <input type="text" class="w-100"
-                placeholder="Cerca o inizia una nuova chat..." v-model="searchUser"/>
+                placeholder="Cerca o inizia una nuova chat..." v-model.trim="contactFilter"
+                @keyup="filterContacts"/>
             </section>
             <!-- contact list -->
             <section class="flex-grow-1 overflow-auto bg-white">
               <ul class="m-0 p-0">
                 <li :class="['media', {active: index === currentContact}]" v-for="(contact, index) in contacts" 
-                    @click="setCurrentContact(index)" v-if="showUser(contact.name)">
+                    @click="setCurrentContact(index)" v-if="contact.visible">
                   <figure>
                     <img :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name" />
                   </figure>
